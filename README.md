@@ -67,15 +67,30 @@ src/main/java/com/desoftcc/
 
 1. **Clonar y configurar MySQL:**
    ```bash
-   git clone [https://github.com/EMILIO25CC/CRUD-Spring-3-Tbl.git]
-   # Crear BD: reservas_db
+   git clone https://github.com/EMILIO25CC/CRUD-Spring-3-Tbl.git
+   # Crear BD: reservadb
    ```
 
 2. **Configurar application.properties:**
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/reservas_db
-   spring.datasource.username=tu_usuario
-   spring.datasource.password=tu_password
+   spring:
+     datasource:
+       url: jdbc:mysql://localhost:3306/reservadb
+       username: tu_usuario
+       password: tu_password
+       driver-class-name: com.mysql.cj.jdbc.Driver
+   
+     jpa:
+       hibernate:
+         ddl-auto: update
+       show-sql: true
+       properties:
+         hibernate:
+           dialect: org.hibernate.dialect.MySQL8Dialect
+           format_sql: true
+           use_sql_comments: true
+   server:
+     port: 8080
    ```
 
 ## 📡 Endpoints de la API
