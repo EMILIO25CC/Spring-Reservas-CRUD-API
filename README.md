@@ -1,4 +1,4 @@
-### Spring Reservas CRUD API
+## Spring Reservas CRUD API
 
 Proyecto de práctica para aprender **Spring Boot** con un CRUD completo que maneja 3 entidades relacionadas: Usuario, Sala y Reserva.
 
