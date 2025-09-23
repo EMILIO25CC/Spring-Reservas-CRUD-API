@@ -1,38 +1,20 @@
-# 🏢 Sistema de Reservas - CRUD con Spring Boot
+# CRUD con Spring Boot - Sistema de Reservas
 
-Un sistema completo de gestión de reservas desarrollado con **Spring Boot**, que permite administrar usuarios, salas y reservas a través de una API REST robusta y bien estructurada.
+Proyecto de práctica para aprender **Spring Boot** con un CRUD completo que maneja 3 entidades relacionadas: Usuario, Sala y Reserva.
 
-## 📋 Descripción del Proyecto
+## ¿Qué hace?
 
-Este proyecto implementa un **CRUD completo** para un sistema de reservas con **3 entidades principales** relacionadas:
+Sistema básico donde:
+- Los **usuarios** pueden hacer **reservas** de **salas**
+- Cada reserva tiene fecha/hora y evita solapamientos
+- API REST para todas las operaciones CRUD
 
-- **👤 Usuario**: Gestión de usuarios del sistema
-- **🏠 Sala**: Administración de salas disponibles
-- **📅 Reserva**: Sistema de reservas con validación de disponibilidad
+## Tecnologías
 
-### 🎯 Características Principales
-
-- ✅ **API REST completa** con operaciones CRUD para todas las entidades
-- 🔄 **DTOs (Data Transfer Objects)** para separación de capas
-- 🛡️ **Validaciones de negocio** (prevención de solapamiento de reservas)
-- 🏗️ **Arquitectura limpia** con separación de responsabilidades
-- 📚 **Documentación integrada** en el código
-- 🧪 **Probado con Postman**
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-| Tecnología | Versión | Propósito |
-|------------|---------|-----------|
-| ☕ **Java** | 17 | Lenguaje de programación |
-| ⚡ **Spring Boot** | 3.x | Framework principal |
-| 🗄️ **Spring Data JPA** | - | Persistencia de datos |
-| 🐬 **MySQL** | 8.x | Base de datos |
-| 🔧 **Lombok** | - | Reducción de código boilerplate |
-| 📬 **Postman** | - | Testing de API |
-
----
+- **Java 17** + **Spring Boot 3**
+- **MySQL** para la base de datos
+- **Spring Data JPA** para persistencia
+- **Lombok** para reducir código repetitivo
 
 ## 📂 Estructura del Proyecto
 
@@ -66,82 +48,35 @@ src/main/java/com/desoftcc/
 │   │   ├── ReservaService.java
 │   │   ├── SalaService.java
 │   │   └── UsuarioService.java
-|   ├── impl/
-|        ├── ReservaServiceImp.java 
+│   ├── impl/
+│        ├── ReservaServiceImp.java 
 │        ├── SalaServiceImp.java
-|        └── UsuarioServiceImp.java
-|
+│        └── UsuarioServiceImp.java
+│
 └── 📱 SpringCrudApplication.java
 ```
 
----
+## 🗃️ Base de Datos
 
-## 🗃️ Modelo de Base de Datos
+**Relaciones:**
+- Usuario (1) → Reservas (N)
+- Sala (1) → Reservas (N)
+- Reserva pertenece a 1 Usuario y 1 Sala
 
-### Relaciones entre Entidades
+## Cómo usar
 
-```
-Usuario (1) -----> (*) Reserva (*) <----- (1) Sala
-```
-
-- Un **Usuario** puede tener múltiples **Reservas**
-- Una **Sala** puede tener múltiples **Reservas**
-- Una **Reserva** pertenece a un **Usuario** y una **Sala**
-
-### Entidades Principales
-
-#### 👤 Usuario
-- ID único
-- Información personal
-- Relación uno-a-muchos con Reservas
-
-#### 🏠 Sala
-- ID único
-- Detalles de la sala
-- Relación uno-a-muchos con Reservas
-
-#### 📅 Reserva
-- ID único
-- Fecha y hora de reserva
-- Referencias a Usuario y Sala
-
----
-
-## 🚀 Instalación y Configuración
-
-### Prerequisitos
-
-- ☕ Java 17 o superior
-- 🐬 MySQL 8.x
-- 🛠️ Maven 3.6+
-
-### Pasos de Instalación
-
-1. **Clonar el repositorio**
+1. **Clonar y configurar MySQL:**
    ```bash
-   git clone https://github.com/tu-usuario/spring-crud-reservas.git
-   cd spring-crud-reservas
+   git clone [https://github.com/EMILIO25CC/CRUD-Spring-3-Tbl.git]
+   # Crear BD: reservas_db
    ```
 
-2. **Configurar la base de datos**
-   ```sql
-   CREATE DATABASE reservas_db;
-   ```
-
-3. **Configurar application.properties**
+2. **Configurar application.properties:**
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/reservas_db
    spring.datasource.username=tu_usuario
-   spring.datasource.password=tu_contraseña
-   spring.jpa.hibernate.ddl-auto=update
+   spring.datasource.password=tu_password
    ```
-
-4. **Ejecutar el proyecto**
-   ```bash
-   mvn spring-boot:run
-   ```
-
----
 
 ## 📡 Endpoints de la API
 
@@ -166,82 +101,10 @@ Usuario (1) -----> (*) Reserva (*) <----- (1) Sala
 - `PUT /reservas/{id}` - Actualizar reserva
 - `DELETE /reservas/{id}` - Eliminar reserva
 
----
+## 🧪 Probado con Postman
 
-## 🧪 Pruebas con Postman
-
-El proyecto incluye validaciones para:
-
-- ✅ Verificación de disponibilidad de salas
-- ✅ Prevención de solapamiento de horarios
-- ✅ Validación de datos de entrada
-- ✅ Manejo de errores y excepciones
-
-### Ejemplo de Request - Crear Reserva
-
-```json
-{
-    "usuarioId": 1,
-    "salaId": 1,
-    "fechaInicio": "2024-12-01T10:00:00",
-    "fechaFin": "2024-12-01T12:00:00",
-    "descripcion": "Reunión de equipo"
-}
-```
+Incluye validación básica para evitar reservas solapadas en la misma sala.
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
-
-### Patrón de Capas Implementado
-
-1. **🎮 Controller Layer**: Manejo de requests HTTP
-2. **⚙️ Service Layer**: Lógica de negocio
-3. **🗄️ Repository Layer**: Acceso a datos
-4. **🏢 Entity Layer**: Modelos de dominio
-5. **📦 DTO Layer**: Objetos de transferencia
-
-### Principios Aplicados
-
-- **Separation of Concerns**: Cada capa tiene una responsabilidad específica
-- **Dependency Injection**: Gestión automática de dependencias con Spring
-- **Data Transfer Objects**: Separación entre modelo de dominio y API
-
----
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Para contribuir:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'Agrega nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
----
-
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
----
-
-## 👨‍💻 Autor
-
-**Tu Nombre**
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- LinkedIn: [Tu Perfil](https://linkedin.com/in/tu-perfil)
-
----
-
-## 📞 Soporte
-
-¿Tienes preguntas o sugerencias? 
-
-- 📧 Email: tu-email@ejemplo.com
-- 🐛 Issues: [GitHub Issues](https://github.com/tu-usuario/spring-crud-reservas/issues)
-
----
-
-*⭐ Si te gusta este proyecto, no olvides darle una estrella en GitHub*
+**Proyecto de práctica para aprender Spring Boot y relaciones JPA** 🚀
