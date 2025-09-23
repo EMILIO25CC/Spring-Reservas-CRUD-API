@@ -1,0 +1,32 @@
+# CRUD con Spring Boot - 3 Tablas Relacionadas
+
+Este es un proyecto de **CRUD** desarrollado con **Spring Boot**, **MySQL** y probado con **Postman**.  
+El sistema implementa una relación entre **3 tablas**: `Usuario`, `Sala` y `Reserva`.  
+
+## Características principales
+- Arquitectura basada en **API REST**.
+- Uso de **DTOs (Data Transfer Objects)** para la comunicación entre capas.
+- **Servicios** y **Repositorios** organizados siguiendo buenas prácticas de Spring.
+- Validación de reglas de negocio (por ejemplo, evitar solapamiento de reservas en una sala).
+- Documentación y comentarios incluidos en el código.
+
+## Tecnologías utilizadas
+- Java 17
+- Spring Boot 3
+- Spring Data JPA
+- MySQL
+- Lombok
+- Postman (para pruebas de la API)
+
+## Estructura del proyecto
+- `controller/` → Endpoints REST.
+- `dto/` → Objetos de transferencia de datos.
+- `entity/` → Entidades JPA.
+- `mapper/` → Conversión entre Entidades y DTOs.
+- `repository/` → Interfaces para acceso a base de datos.
+- `service/` → Lógica de negocio.
+
+## Cómo ejecutar
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/EMILIO25CC/CRUD-Spring-3-Tbl.git
