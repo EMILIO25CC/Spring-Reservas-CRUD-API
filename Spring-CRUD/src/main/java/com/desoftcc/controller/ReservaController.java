@@ -9,30 +9,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/reserva")
 @RequiredArgsConstructor
-@RequestMapping("/api/reservas")
 public class ReservaController {
 
     private final ReservaService reservaService;
 
     @GetMapping
-    public List<ReservaResponseDTO> listar(){
+    public List<ReservaResponseDTO> ListarReservas(){
         return reservaService.Listar();
     }
 
     @PostMapping
-    public ReservaResponseDTO guardar(@RequestBody ReservaRequestDTO requestDTO){
-        return reservaService.gardar(requestDTO);
+    public ReservaResponseDTO GuardarReserva(@RequestBody ReservaRequestDTO requestDTO){
+        return reservaService.Guardar(requestDTO);
     }
 
     @GetMapping("/{id}")
-    public ReservaResponseDTO obtener(@PathVariable Long id){
-        return reservaService.obtenerPorId(id);
+    public ReservaResponseDTO BuscarReserva(@PathVariable Long id){
+        return reservaService.ObtenerPorId(id);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id){
-        reservaService.eliminar(id);
+    public void EliminarReserva(@PathVariable Long id){
+        reservaService.Eliminar(id);
     }
 
-}//FIN
+
+}// Fin

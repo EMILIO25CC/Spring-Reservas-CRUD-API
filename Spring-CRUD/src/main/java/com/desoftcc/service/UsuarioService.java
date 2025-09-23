@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface UsuarioService {
 
+    /// Aquí colocamos los métodos que usara la API para Usuario.
+
     List<UsuarioResponseDTO> Listar();
-
     UsuarioResponseDTO Guardar(UsuarioRequestDTO requestDTO);
-
     UsuarioResponseDTO ObtenerPorId(Long id);
 
     void Eliminar(Long id);
+    Usuario ObtenerEntidadPorId(Long id);
 
-    Usuario obtenerEntidadPorId(Long id);
-}
+}// FIN de la interfaz

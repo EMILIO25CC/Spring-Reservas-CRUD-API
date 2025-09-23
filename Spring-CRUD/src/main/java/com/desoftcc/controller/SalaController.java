@@ -9,31 +9,37 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+
 @RequiredArgsConstructor
+@RestController
 @RequestMapping("/api/sala")
 public class SalaController {
 
+    // Se declara como private final para que solo pueda usarse dentro de esta clase,
+    // evitando acceso público que comprometería la lógica específica del controlador y sus DTOs,
+    // ya que tiene una lógica única y específica solo para este controller.
     private final SalaService salaService;
 
     @GetMapping
-    public List<SalaResponseDTO> listar(){
-        return salaService.lista();
+    public List<SalaResponseDTO> ListarSalas(){
+        return salaService.Listar();
     }
 
     @PostMapping
-    public SalaResponseDTO guardar(@RequestBody SalaRequestDTO requestDTO){
-        return salaService.guardar(requestDTO);
+    public SalaResponseDTO GuardarSala(@RequestBody SalaRequestDTO requestDTO){
+        return salaService.Guardar(requestDTO);
     }
 
     @GetMapping("/{id}")
-    public SalaResponseDTO obtener(@PathVariable Long id){
-        return salaService.obtenerPorId(id);
+    public SalaResponseDTO BuscarSala(@PathVariable Long id){
+        return salaService.ObtenerPorId(id);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar (@PathVariable Long id){
-        salaService.eliminar(id);
+    public void EliminarSala (@PathVariable Long id){
+        salaService.Eliminar(id);
     }
 
-}//FIN
+
+
+}// Fin

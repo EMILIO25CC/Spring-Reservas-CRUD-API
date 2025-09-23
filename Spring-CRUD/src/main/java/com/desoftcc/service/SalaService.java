@@ -7,16 +7,34 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface SalaService  {
 
-    List<SalaResponseDTO> lista();
+public interface SalaService {
+    /// Aquí colocamos los métodos que usara la API para Sala.
 
-    SalaResponseDTO guardar(SalaRequestDTO requestDTO);
+    List<SalaResponseDTO> Listar();
+    SalaResponseDTO Guardar(SalaRequestDTO requestDTO);
 
-    SalaResponseDTO obtenerPorId(Long id);
-    void eliminar (Long id);
+    /// Devuelve un DTO listo para la API, con los datos que se van a exponer al cliente
+    SalaResponseDTO ObtenerPorId(Long id);
 
-    ///OJO
-    Sala obtenerEntidadPorID(Long id);
+    void Eliminar(Long id);
+    /// Devuelve la entidad completa para uso interno en el backend, útil para relaciones o lógica interna
+    Sala ObtenerEntidadPorId(Long id);
 
-}
+    /*
+     * Diferencia entre ambos métodos:
+     *
+     * - UsuarioResponseDTO ObtenerPorId(Long id):
+     *   Devuelve solo los datos necesarios para la API,
+     *   ocultando información sensible y mostrando únicamente
+     *   lo que el cliente debe consumir.
+     *
+     * - Sala ObtenerEntidadPorId(Long id):
+     *   Devuelve la entidad completa.
+     *   Se usa únicamente en el backend para lógica interna
+     *   o manejo de relaciones con otras entidades.
+     */
+
+
+
+}/// FIN de la interfaz de Sala.

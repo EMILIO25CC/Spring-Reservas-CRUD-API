@@ -16,10 +16,10 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private String nombreCompleto;
 
-    @Column(unique = true, nullable = false) // el campo sera unico y llenado obligatoriamente.
+    @Column(unique = true, nullable = false) // el campo será único y llenado obligatoriamente.
     private String email;
 
     private String telefono;

@@ -7,11 +7,11 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder // permite construir objetos con la sintaxis
 public class Sala {
 
     @Id
@@ -23,10 +23,9 @@ public class Sala {
     private String recursos;
     private Boolean disponible;
 
-
-    /// Una Sala tiene muchas Reservas
-    @OneToMany(mappedBy = "sala",cascade = CascadeType.ALL,orphanRemoval = true)
+    /// Una sala tiene muchas reservas
+    @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reserva> reservas;
 
 
-}
+}///FIN

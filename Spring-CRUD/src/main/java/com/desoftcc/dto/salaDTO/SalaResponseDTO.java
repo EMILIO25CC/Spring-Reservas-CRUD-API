@@ -16,7 +16,7 @@ public class SalaResponseDTO {
     private Integer capacidad;
     private String ubicacion;
     private String recursos;
-    private boolean disponible;
+    private boolean disponible;  // true - false
 
 
 

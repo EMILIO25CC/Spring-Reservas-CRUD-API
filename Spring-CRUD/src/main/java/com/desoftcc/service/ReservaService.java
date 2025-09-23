@@ -2,16 +2,18 @@ package com.desoftcc.service;
 
 import com.desoftcc.dto.reservaDTO.ReservaRequestDTO;
 import com.desoftcc.dto.reservaDTO.ReservaResponseDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public interface ReservaService {
 
-    List<ReservaResponseDTO>Listar();
+    /// Aquí colocamos los métodos que usara la API para Reserva.
 
-    ReservaResponseDTO gardar (ReservaRequestDTO requestDTO);
+    List<ReservaResponseDTO> Listar();
+    ReservaResponseDTO Guardar(ReservaRequestDTO requestDTO);
+    ReservaResponseDTO ObtenerPorId(Long id);
 
-    ReservaResponseDTO obtenerPorId(Long id);
+    void Eliminar(Long id);
 
-    void eliminar(Long id);
-}
+}///Fin
