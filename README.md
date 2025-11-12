@@ -96,25 +96,28 @@ src/main/java/com/desoftcc/
 ## 📡 Endpoints de la API
 
 ### 👤 Usuarios
-- `GET /usuarios` - Listar todos los usuarios
-- `GET /usuarios/{id}` - Obtener usuario por ID
-- `POST /usuarios` - Crear nuevo usuario
-- `PUT /usuarios/{id}` - Actualizar usuario
-- `DELETE /usuarios/{id}` - Eliminar usuario
+## http://localhost:8080/api/usuario 
+- `GET /api/usuario` - Listar todos los usuarios
+- `GET /api/usuario/{id}` - Obtener usuario por ID
+- `POST /api/usuario` - Crear nuevo usuario
+- `PUT /api/usuario/{id}` - Actualizar usuario
+- `DELETE /api/usuario/{id}` - Eliminar usuario
 
 ### 🏠 Salas
-- `GET /salas` - Listar todas las salas
-- `GET /salas/{id}` - Obtener sala por ID
-- `POST /salas` - Crear nueva sala
-- `PUT /salas/{id}` - Actualizar sala
+## http://localhost:8080/api/sala
+- `GET /api/sala` - Listar todas las salas
+- `GET /api/sala/{id}` - Obtener sala por ID
+- `POST /api/sala` - Crear nueva sala
+- `PUT /api/sala/{id}` - Actualizar sala
 - `DELETE /salas/{id}` - Eliminar sala
 
 ### 📅 Reservas
-- `GET /reservas` - Listar todas las reservas
-- `GET /reservas/{id}` - Obtener reserva por ID
-- `POST /reservas` - Crear nueva reserva
-- `PUT /reservas/{id}` - Actualizar reserva
-- `DELETE /reservas/{id}` - Eliminar reserva
+## http://localhost:8080/api/reserva
+- `GET /api/reserva` - Listar todas las reservas
+- `GET /api/reserva/{id}` - Obtener reserva por ID
+- `POST /api/reserva` - Crear nueva reserva
+- `PUT /api/reserva/{id}` - Actualizar reserva
+- `DELETE /api/reserva/{id}` - Eliminar reserva
 
 ## 🧪 Probado con Postman
 
